@@ -8,10 +8,10 @@ import { fetchUsers } from '../store/action-creators/user';
 const UserList: FC = () => {
 	/* const {users, error, loading} = useTypedSelector(state => state.user); */
 	const { users, error, loading } = useTypedSelector(state => state.user);
-	const { fetchUsers } = useActions();
+	const { fetchUsers } = useActions(); // наш волшебный хук возвращает экшн криейтор(ы)
 
 	useEffect(() => {
-		fetchUsers();
+		fetchUsers(); // ! экшн криэйтор сам прокидывается в дипатч, ахренеть
 	}, []);
 
 	if (loading) {
@@ -27,7 +27,6 @@ const UserList: FC = () => {
 				<div key={user.id}>{user.name}</div>
 			))}
 		</div>
-		
 	);
 };
 

@@ -3,13 +3,12 @@ import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const TodoList: FC = () => {
-	const { page, error, loading, todos, limit } = useTypedSelector(
-		state => state.todo
-	);
-	const { fetchTodos, setTodoPage } = useActions();
-	const pages = [1, 2, 3, 4, 5];
+	const { page, error, loading, todos, limit } = useTypedSelector(state => state.todo);
+	const { fetchTodos, setTodoPage } = useActions(); // хук для прокидывания экшн криэйторов в диспатч без нужды делать это явно
+	const pages = [1, 2, 3, 4, 5]; // пагинация
+
 	useEffect(() => {
-		fetchTodos(page, limit);
+		fetchTodos(page, limit); // ! экшн криэйтор сам прокидывается в дипатч, ахренеть
 	}, [page]);
 
 	if (loading) {
@@ -29,11 +28,12 @@ const TodoList: FC = () => {
 			<div style={{ display: 'flex' }}>
 				{pages.map(p => (
 					<div
-						onClick={() => setTodoPage(p)}
+						onClick={() => setTodoPage(p)} // ! экшн криэйтор сам прокидывается в дипатч, ахренеть
 						key={p}
 						style={{
-							border: p === page ? '2px solid green' : '1px solid gray',
+							border: p === page ? '2px solid green' : '1px solid coral',
 							padding: 10,
+							marginRight: 15
 						}}
 					>
 						{p}

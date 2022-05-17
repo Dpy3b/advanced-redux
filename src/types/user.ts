@@ -8,13 +8,14 @@ export interface UserState {
 	loading: boolean;
 	error: null | string;
 }
-
+// создаем перечисление со всеми типами экшнов
 export enum UserActionTypes {
 	FETCH_USERS = 'FETCH_USERS',
 	FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS',
 	FETCH_USERS_ERROR = 'FETCH_USERS_ERROR',
 }
 
+// создаем отдельный интерфейс для каждого экшна обращаясь к перечислению и вытягиваем константы
 interface FetchUserAction {
 	type: UserActionTypes.FETCH_USERS;
 }
@@ -27,10 +28,12 @@ interface FetchUsersErrorAction {
 	payload: string;
 }
 
-export type UserAction = FetchUserAction| FetchUsersSuccessAction | FetchUsersErrorAction
+// создаем общий тип экшнов для юзера, может принимать один из трех типов который мы описали
+export type UserAction = FetchUserAction | FetchUsersSuccessAction | FetchUsersErrorAction;
 
-/* interface UserAction {
+/*
+interface UserAction {
 	type: string;
 	payload?: any;
 }
- */
+*/

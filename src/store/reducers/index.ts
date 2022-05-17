@@ -7,6 +7,5 @@ export const rootReducer = combineReducers({
 	todo: todoReducer,
 });
 
-
 // получаем тип нашего редюсера с помощью тайпскриптовского ReturnType
 export type RootState = ReturnType<typeof rootReducer>;

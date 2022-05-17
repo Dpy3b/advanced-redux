@@ -17,10 +17,10 @@ export const todoReducer = (state = initialState, action: TodoAction) => {
 			return { ...state, loading: false, todos: action.payload };
 
 		case TodoActionTypes.FETCH_TODOS_ERROR:
-			return {...state, loading: false, error: action.payload};
+			return { ...state, loading: false, error: action.payload };
 
 		case TodoActionTypes.SET_TODO_PAGE:
-			return {...state, page: action.payload};
+			return { ...state, page: action.payload };
 
 		default:
 			return state;

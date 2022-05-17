@@ -1,0 +1,14 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: gray;
+	font-size: 18px;
+	font-family: monospace, sans-serif;
+}
+
+.App {
+}
